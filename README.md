@@ -26,3 +26,23 @@ The list is contained in the `src/lib/themes.ts` file.
 - Water
 - The future
 - Technology
+- Love
+- Magic
+- Nature
+- Underground
+- Beach
+- Past
+- Snow
+- Colors
+- Trees
+- Tunnels
+- Cat
+- Dog
+- Rabbit
+- Elephant
+- City
+- Car
+- Fruit
+- Meat
+- Night
+- Magnet
