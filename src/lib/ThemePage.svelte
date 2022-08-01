@@ -1,17 +1,48 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { Confetti } from 'svelte-confetti';
+
 	export let theme: string;
+
+	const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+
+	let confettisShowDelay: boolean = false;
+
+	onMount(async () => {
+		await sleep(1500);
+		confettisShowDelay = true;
+	});
 </script>
 
 <div class="theme_page">
-	<div class="label">And the theme is...</div>
-	<div class="theme">
-		{theme}
+	<!-- Top -->
+	<div>
+		<!-- Empty div -->
+	</div>
+
+	<!-- Center -->
+	<div style="text-align: center;">
+		<div class="label">And the theme is...</div>
+		<div class="theme">
+			{theme}
+		</div>
+	</div>
+
+	<!-- Bottom -->
+	<div class="confettis">
+		{#if confettisShowDelay}
+			<Confetti cone infinite x={[-1, 1]} y={[0.75, 1.5]} amount="200" size="12" />
+		{/if}
 	</div>
 </div>
 
 <style>
 	.theme_page {
-		text-align: center;
+		height: 95%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.label {
