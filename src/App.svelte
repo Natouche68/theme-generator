@@ -1,13 +1,23 @@
 <script lang="ts">
 	import Home from './lib/Home.svelte';
+	import { themes } from './lib/themes';
+
+	let currentAppState: AppState = 'home';
+	let theme: string;
 
 	function generateTheme() {
-		console.log('generate theme');
+		theme = themes[Math.floor(Math.random() * themes.length)];
+		currentAppState = 'show_theme';
+		console.log(theme);
 	}
 </script>
 
 <div class="app">
-	<Home on:generate_theme={generateTheme} />
+	{#if currentAppState === 'home'}
+		<Home on:generate_theme={generateTheme} />
+	{:else if currentAppState === 'show_theme'}
+		Theme
+	{/if}
 </div>
 
 <style>
