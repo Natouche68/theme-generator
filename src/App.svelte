@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Home from './lib/Home.svelte';
+	import ThemePage from './lib/ThemePage.svelte';
 	import { themes } from './lib/themes';
 
 	let currentAppState: AppState = 'home';
@@ -8,7 +9,6 @@
 	function generateTheme() {
 		theme = themes[Math.floor(Math.random() * themes.length)];
 		currentAppState = 'show_theme';
-		console.log(theme);
 	}
 </script>
 
@@ -16,7 +16,7 @@
 	{#if currentAppState === 'home'}
 		<Home on:generate_theme={generateTheme} />
 	{:else if currentAppState === 'show_theme'}
-		Theme
+		<ThemePage {theme} />
 	{/if}
 </div>
 
