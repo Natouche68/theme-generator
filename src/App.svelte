@@ -1,9 +1,13 @@
 <script lang="ts">
+	import Home from './lib/Home.svelte';
+
+	function generateTheme() {
+		console.log('generate theme');
+	}
 </script>
 
 <div class="app">
-	<div class="title">Theme Generator</div>
-	<div class="subtitle">Generates themes for game jams, or any other competition</div>
+	<Home on:generate_theme={generateTheme} />
 </div>
 
 <style>
@@ -17,15 +21,5 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-	}
-
-	.title {
-		font-size: 4.8em;
-		font-weight: 700;
-	}
-
-	.subtitle {
-		font-size: 2em;
-		font-weight: 500;
 	}
 </style>
